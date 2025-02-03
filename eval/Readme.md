@@ -65,7 +65,7 @@ For column **instruments**:
 - **IAA Kappa Score**: Adjusts agreement by considering random chance (higher is better).
 
 <div align="center">
-  <img src="img/iaa_all.png" width="900"/>
+  <img src="../img/iaa_all.png" width="900"/>
 </div>
 
 
@@ -118,5 +118,5 @@ For category **instruments**, updated ELO ratings: {'MusicGenBaseline': 1510, 'M
 - **Lower scores** mean the model performed worse in comparisons.
 
 <div align="center">
-  <img src="img/elo.png" width="900"/>
+  <img src="../img/elo.png" width="900"/>
 </div>

@@ -19,6 +19,20 @@ The [Compmusic](https://compmusic.upf.edu/datasets) dataset contains 120+ hours 
 
 The [MTG-Saraga](https://mtg.github.io/saraga/) dataset contains 40+ hours of Hindustani Classical annotated data. 
 
+## Adapter Positioning
+
+<div align="center">
+  <img src="img/model_settings.pdf" width="900"/>
+</div>
+
+### Mustango
+To enhance this process, a Bottleneck Residual Adapter with convolution layers is integrated into the up-sampling, middle, and down-sampling blocks of the UNet, positioned just after the cross-attention block. This design facilitates cultural adaptation while preserving computational efficiency. The adapters reduce channel dimensions by a factor of 8, using a kernel size of 1 and GeLU activation after the down-projection layers to introduce non-linearity.
+
+### MusicGen
+In MusicGen, we enhance the model with an additional 2 million parameters by integrating Linear Bottleneck Residual Adapter after the transformer decoder within the MusicGen architecture after thorough experimentation with other placements.
+
+The total parameter count of both the models is ~2 billion, making the adapter only 0.1% of the total size (2M params).
+
 ## Evaluations
 
 

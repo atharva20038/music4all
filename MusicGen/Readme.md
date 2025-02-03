@@ -64,7 +64,7 @@ This table provides an overview of the key parameters used in the **inference pr
 | **Output Audio Path**     | Path where the generated audio file is saved.             | `./GeneratedAudios/1.wav`                                  |
 | **Waveform Graph Path**   | Path where the waveform visualization is stored.          | `./GeneratedGraphs/1.jpeg`                                 |
 | **Sample Rate**           | Desired sample rate for the generated audio.              | `16,000 Hz`                                                |
-| **Adapter Bottleneck Dim**| Size of the bottleneck layer in the adapter network.      | `4000`                                                     |
+| **Adapter Bottleneck Dim**| Size of the bottleneck layer in the adapter network.      | `32`                                                     |
 | **Max New Tokens**        | Controls the length of the generated music (512 ≈ 10 sec). | `512`                                                      |
 | **Device**               | Specifies whether to use GPU or CPU for inference.        | `CUDA if available, else CPU`                             |
 | **Use Fine-tuned Model**  | Determines whether to use the fine-tuned model or pre-trained. | `True` (uses fine-tuned model)                            |

@@ -14,4 +14,4 @@ export NCCL_SOCKET_IFNAME=eno2
 export OMP_NUM_THREADS=2
 export NCCL_TIMEOUT=300  # Increase NCCL timeout to handle slow network initialization
  
-torchrun --nproc_per_node=2 MusicGenAdaptor_EncDec.py
+torchrun --nproc_per_node=2 Training.py

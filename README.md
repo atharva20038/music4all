@@ -36,7 +36,7 @@ The total parameter count of both the models is ~2 billion, making the adapter o
 For both models we used two RTX A6000 GPUs over a period of around 10 hours. The adapter block was fine-tuned, using the AdamW optimizer using MSE (Reconstruction Loss).
 
 ## Evaluations
-## **Objective Evaluation Metrics for Music Models**
+### **Objective Evaluation Metrics for Music Models**
 
 The table below presents the **objective evaluation metrics** for **Hindustani Classical Music** and **Turkish Makam**, assessing the quality of generated music based on **Fréchet Audio Distance (FAD)**, **Fréchet Distance (FD)**, **Kullback-Leibler Divergence (KLD)**, and **Peak Signal-to-Noise Ratio (PSNR)**.
 
@@ -66,6 +66,33 @@ The table below presents the **objective evaluation metrics** for **Hindustani C
 </table>
 
 </div>
+
+### **Human Evaluation (ELO Ratings, ↑)**  
+
+The table below presents the **human evaluation scores (ELO Ratings)** for **Hindustani Classical Music** and **Turkish Makam**, where **higher values indicate better performance**.
+
+#### **Hindustani Classical Music - All Queries**
+| **Model**  | **OA ↑**  | **Inst. ↑**  | **MC ↑**  | **RC ↑**  | **CR ↑**  |
+|------------|----------|----------|----------|----------|----------|
+| **MusicGen Baseline**  | 1525  | 1520  | 1540  | 1552  | 1546  |
+| **Mustango Baseline**  | 1449  | 1466  | 1409  | 1470  | 1518  |
+| **MusicGen Finetuned**  | 1448  | 1454  | 1428  | 1439  | 1448  |
+| **Mustango Finetuned**  | **1577**  | **1559**  | **1623**  | **1538**  | **1487**  |
+
+#### **Turkish Makam - All Queries**
+| **Model**  | **OA ↑**  | **Inst. ↑**  | **MC ↑**  | **RC ↑**  | **CR ↑**  |
+|------------|----------|----------|----------|----------|----------|
+| **MusicGen Baseline**  | 1539  | 1562  | 1597  | 1622  | 1603  |
+| **Mustango Baseline**  | 1527  | 1531  | 1499  | 1523  | 1560  |
+| **MusicGen Finetuned**  | **1597**  | 1529  | 1570  | 1570  | 1541  |
+| **Mustango Finetuned**  | 1337  | 1377  | 1334  | 1286  | 1297  |
+
+#### **Legend:**
+- **OA (Overall Accuracy)**  
+- **Inst. (Instrumentation)**  
+- **MC (Melodic Consistency)**  
+- **RC (Rhythmic Consistency)**  
+- **CR (Creativity)**  
 
 
 

@@ -1,0 +1,1 @@
+python baseline.py --model "saved/1727169396/best/model_2.bin" --test_file "inference_data_indian/infer_data.json" --original_args "saved/1727169396/summary.jsonl" --guidance 3 --test_references "test_ref/IndianClassical"

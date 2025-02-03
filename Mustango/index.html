@@ -1,0 +1,874 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BVMESHE6ZC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BVMESHE6ZC');
+</script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.66.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+  <!-- <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/custom.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- <link rel="alternate" href="index.xml" type="application/rss+xml" title="Speech Research"> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon_io/site.webmanifest">
+
+  <!-- <link rel="icon" type="image/x-icon" href="img/favicon_io/favicon.ico"> -->
+
+  <title>Mustango: Toward Controllable Text-to-Music Generation</title>
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .mono {
+      font-family: 'Roboto Mono', monospace;
+    }
+  </style>
+
+</head>
+
+<body rightmargin="150" leftmargin="150" topmargin="100" bottommargin="100" line-height:160%>
+  <font size="4">
+
+    <div class="container">
+
+      <header role="banner">
+
+      </header>
+      <main role="main">
+        <article itemscope itemtype="https://schema.org/BlogPosting">
+          <br></br>
+          <h1 itemprop="headline" align="center">
+            <font color="000093" size="7">Mustango: Toward Controllable Text-to-Music Generation</br>
+            </font>
+          </h1>
+          <br></br>
+          <p style="line-height:1" align="center"><b>
+              <font color="061E61">Jan Melechovsky<sup>1</sup>, Zixun Guo<sup>2</sup>, Deepanway Ghosal<sup>1</sup>, Navonil Majumder<sup>1</sup>, Dorien Herremans<sup>1</sup>, Soujanya Poria<sup>1</sup></font>
+            </b></p>
+          <p style="line-height:0.6" align="center">
+            <font color="061E61"><sup>1</sup>Singapore University of Technology and Design, Singapore</font>
+          </p>
+          <p style="line-height:0.6" align="center">
+            <font color="061E61"><sup>2</sup>Queen Mary University of London, UK</font>
+          </p>
+
+          <section itemprop="entry-text">
+            <br>
+            <div class="container">
+              <center>
+                <p><a href="https://arxiv.org/abs/2311.08355">[Paper on ArXiv]</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/AMAAI-Lab/mustango">[Code on GitHub]</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://huggingface.co/spaces/declare-lab/mustango">[Live demo]</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://huggingface.co/datasets/amaai-lab/MusicBench">[MusicBench dataset]</a></p>
+              </center>
+
+
+            </div>
+            <h2 id="abstract">
+              <font color="000093">Abstract</font>
+            </h2>
+            <p style="text-align: justify;">
+              <!-- <font color="061E61"> With recent advancements in text-to-audio and text-to-music based on latent diffusion models, the quality of generated content has been reaching new heights. The controllability of musical aspects, however, has not been explicitly explored in text-to-music systems yet. In this paper, we present Mustango, a music-domain-knowledge-inspired text-to-music system based on diffusion, that expands the Tango text-to-audio model. Mustango aims to control the generated music, not only with general text captions, but from more rich captions that could include specific instructions related to chords, beats, tempo, and key. As part of Mustango, we propose MuNet, a Music-Domain-Knowledge-Informed UNet sub-module to integrate these music-specific features, which we predict from the text prompt, as well as the general text embedding, into the diffusion denoising process. To overcome the limited availability of open datasets of music with text captions, we propose a novel data augmentation method that includes altering the harmonic, rhythmic, and dynamic aspects of music audio and using state-of-the-art Music Information Retrieval methods to extract the music features which will then be appended to the existing descriptions in text format. We release the resulting MusicBench dataset which contains over 52K instances and includes music-theory-based descriptions in the caption text. Through extensive experiments, we show that the quality of the music generated by Mustango is state-of-the-art, and the controllability through music-specific text prompts greatly outperforms other models in terms of desired chords, beat, key, and tempo, on multiple datasets. </font> -->
+              <font color="061E61"> The quality of the text-to-music models has reached new heights due to recent advancements in diffusion models. The controllability of various musical aspects, however, has barely been explored. In this paper, we propose Mustango: a music-domain-knowledge-inspired text-to-music system based on diffusion. Mustango aims to control the generated music, not only with general text captions, but with more rich captions that can include specific instructions related to chords, beats, tempo, and key. At the core of Mustango is MuNet, a Music-Domain-Knowledge-Informed UNet guidance module that steers the generated music to include the music-specific conditions, which we predict from the text prompt, as well as the general text embedding, during the reverse diffusion process. To overcome the limited availability of open datasets of music with text captions, we propose a novel data augmentation method that includes altering the harmonic, rhythmic, and dynamic aspects of music audio and using state-of-the-art Music Information Retrieval methods to extract the music features which will then be appended to the existing descriptions in text format. We release the resulting MusicBench dataset which contains over 52K instances and includes music-theory-based descriptions in the caption text. Through extensive experiments, we show that the quality of the music generated by Mustango is state-of-the-art, and the controllability through music-specific text prompts greatly outperforms other models such as MusicGen and AudioLDM2. </font>
+            </p>
+
+            <p style="color:#9F0909; font-style:italic"><b>Live demo available on <a href="https://huggingface.co/spaces/declare-lab/mustango" style="color:#9F0909; font-style:italic">Huggingface!</a></b></p>
+
+
+            <p style="color:#9F0909; font-style:italic"><b>Live demo available on <a href="https://replicate.com/declare-lab/mustango" style="color:#9F0909; font-style:italic">Replicate!</a></b></p>
+
+
+            <h2 id="note">
+              <font color="000093">Highlights</font>
+            </h2>
+            <li>
+              <font color="061E61"> Mustango generates music from text prompts.</font>
+            </li>
+            <li>
+              <font color="061E61"> Mustango understands specific music technical language, offering excellent controllability. </font>
+            </li>
+            <li>
+              <font color="061E61"> Mustango is infused with music domain knowledge to reach top musical quality and controllability.</font>
+
+            </li>
+
+            <br></br>
+            <figure>
+              <p align="center"><img src="img/mustango-schematic-v3.jpg" width="100%" class="center" /></p>
+              <figcaption>
+                <p style="text-align: justify;">
+                  <font color="061E61"><b>Figure 1:</b> Mustango architecture.
+                </p>
+              </figcaption>
+            </figure>
+
+</section>
+
+<br>
+
+            <h2><font color="061E61">Mustango generated samples:</font>
+</h2>
+
+The models were provided with the below input text prompts to generate the music. 
+
+<table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+  <tbody>
+    <tr>
+      <td  class="mono">
+          This techno song features a synth lead playing the main melody. This is accompanied by programmed percussion playing a simple kick focused beat. The hi-hat is accented in an open position on the 3-and count of every bar. The synth plays the bass part with a voicing that sounds like a cello. This techno song can be played in a club. The chord sequence is Gm, A7, Eb, Bb, C, F, Gm. The beat counts to 2. The tempo of this song is 128.0 beats per minute. The key of this song is G minor.    
+      </td>
+      </tr>
+    <tr>
+      <td>
+        <audio controls="controls">
+          <source src="samples/samples2/output_71.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+    </tr>
+
+ 
+      
+   
+
+      <tr>
+        <td  class="mono">
+            This is a new age piece. There is a flute playing the main melody with a lot of staccato notes. The rhythmic background consists of a medium tempo electronic drum beat with percussive elements all over the spectrum. There is a playful atmosphere to the piece. This piece can be used in the soundtrack of a children's TV show or an advertisement jingle.        
+        </td>
+    </tr>
+    
+    <tr>
+          <td>
+            <audio controls="controls">
+              <source src="samples/samples2/output_193.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+    </tr>
+
+
+    <tr>
+        <td  class="mono">
+            The song is an instrumental. The song is in medium tempo with a classical guitar playing a lilting melody in accompaniment style. The song is emotional and romantic. The song is a romantic instrumental song. The chord sequence is Gm, F6, Ebm. The time signature is 4/4. This song is in Adagio. The key of this song is G minor.
+        </td>
+    </tr>
+    
+    <tr>
+          <td>
+            <audio controls="controls">
+              <source src="samples/samples2/output_70.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+    </tr>
+
+   
+    <tr>
+      <td  class="mono">
+          This folk song features a female voice singing the main melody. This is accompanied by a tabla playing the percussion. A guitar strums chords. For most parts of the song, only one chord is played. At the last bar, a different chord is played. This song has minimal instruments. This song has a story-telling mood. This song can be played in a village scene in an Indian movie. The chord sequence is Bbm, Ab. The beat is 3. The tempo of this song is Allegro. The key of this song is Bb minor.
+      </td>
+  </tr>
+  
+  <tr>
+        <td>
+          <audio controls="controls">
+            <source src="samples/samples2/output_66.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+  </tr>
+  
+  <!-- <tr>
+          <td  class="mono">
+              The low quality recording features a jazzy song that consists of shimmering hi hats, repetitive cowbell, snappy rimshots and smooth bass in the right channel, short brass stabs and groovy piano chords in the left channel of the stereo image and electric guitar solo melody in the middle. The stereo image of the song is a bit unbalanced, due to the spreadness of low frequency sounds throughout the stereo image. It sounds easygoing and percussive.        
+          </td>    
+  </tr>
+  
+  <tr>
+          <td>
+            <audio controls="controls">
+              <source src="samples/samples2/output_274.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+      </tr> -->
+    <tr>
+        <td  class="mono">
+            This is a live performance of a classical music piece. There is an orchestra performing the piece with a violin lead playing the main melody. The atmosphere is sentimental and heart-touching. This piece could be playing in the background at a classy restaurant. The chord progression in this song is Am7, Gm, Dm, A7, Dm. The beat is 3. This song is in Largo. The key of this song is D minor.        
+        </td>
+    </tr> 
+    
+     <tr>
+          <td>
+            <audio controls="controls">
+              <source src="samples/samples2/output_116.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+    </tr> 
+
+    <tr>
+        <td  class="mono">
+            This is an instrumental hip-hop music piece. It is meant to be used as a rap beat. There is a fuzzy synth bass playing a groovy bass line with a mellow sounding keyboard playing alongside it. There is a loud electronic drum beat in the rhythmic background. This piece has a crisp and urban atmosphere. It could either be used as a rap beat or it could take place in the soundtrack of a crime movie/TV show with a modern city setting. The chord sequence is Abm7. The beat is 4. This song is in Andante. This song is in the key of Ab minor.        
+        </td>
+    </tr>
+    
+    <tr>
+          <td>
+            <audio controls="controls">
+              <source src="samples/samples2/output_112.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+    </tr>
+
+    <!-- <tr>
+        <td  class="mono">
+            The low quality recording features a muffled crowd talking in the background while there is a horn melody, alongside horn siren sound playing. It sounds like a traditional thing to do.     
+        </td>
+    </tr>
+    
+    <tr>
+          <td>
+            <audio controls="controls">
+              <source src="samples/samples2/output_343.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+    </tr> -->
+
+
+    <tr>
+        <td  class="mono">
+            The song is an instrumental. The tempo is medium with a guitar accompaniment and leads into a strong drumming rhythm and bass line. The song is exciting and energetic. The song is a movie soundtrack for a travel show or a documentary. The chord sequence is D, G, D, G, D. The time signature is 2/4. The bpm is 58.0. The key of this song is D major.       
+        </td>
+    </tr>
+    
+    <tr>
+          <td>
+            <audio controls="controls">
+              <source src="samples/samples2/output_138.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+    </tr>
+
+    <tr>
+        <td  class="mono">
+            The song is an instrumental. The song is medium tempo with an accordion accompaniment, violin solo and a flute melody. The song is beautiful and nostalgic. The audio quality is poor. The song has an old gypsy soul to it. This song is in Andante. This song is in the key of B minor. The time signature is 3/4. The chord progression in this song is A, D, Bm.     
+        </td>
+    </tr>
+    
+    <tr>
+          <td>
+            <audio controls="controls">
+              <source src="samples/samples2/output_205.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+    </tr>
+
+
+
+    </tbody>
+</table>
+
+</br>
+
+<br>
+<h2>
+    <font color="061E61">"Crazy Samples" -- combining music with general audio:</font>
+  </h2>
+
+  These samples were generated from the pre-trained version of Mustango, which allows for some crazy combinations of music and general audio to be synthesized. 
+
+  <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+    <tbody>
+        <tr>
+          <td  class="mono">
+            This is a techno piece with drums and beats and a leading melody. A synth plays chords. The music kicks off with a powerful and relentless drumbeat. Over the pounding beats, a leading melody emerges. In the middle of the song, a flock of seagulls flies over the venue and make loud bird sounds. It has strong danceability and can be played in a club. The tempo is 120 bpm. The chords played by the synth are Am, Cm, Dm, Gm.        
+          </td>
+      </tr>
+      
+      <tr>
+            <td>
+              <audio controls="controls">
+                <source src="samples/CrazytestMustangoP/output_12.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+            </td>
+      </tr>
+
+
+      <tr>
+        <td  class="mono">
+            A symphony plays a classical harmonic and epic sounding piece that culminates with the loud bang of a cannon shot.    
+        </td>
+        </tr>
+      <tr>
+        <td>
+          <audio controls="controls">
+            <source src="samples/CrazytestMustangoP/output_0.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td  class="mono">
+            A blues song played by a guitar and bass. The atmosphere is energetic, yet melancholic and sad. There is a bear coming from the audience to roar out loud.        
+        </td>
+    </tr>
+    
+    <tr>
+          <td>
+            <audio controls="controls">
+              <source src="samples/CrazytestMustangoP/output_13.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+    </tr>
+
+
+    </tbody>
+</table>
+</br>
+
+
+
+<br>
+<h2>
+    <font color="061E61">Samples generated by Mustango fans:</font>
+  </h2>
+
+  These samples were generated by the community through the use of replicate/huggingface demos!
+  <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+    <tbody>
+      <tr>
+        <td  class="mono">
+          This jazz composition boasts a captivating interplay of instruments. A soulful saxophone takes the lead, weaving intricate melodies over a rhythm section characterized by dynamic drum patterns and walking bass lines. The harmonic progression, anchored in G minor, adds a touch of sophistication to this jazz piece. With its smooth tempo of 128.0 beats per minute, it sets the perfect mood for a laid-back evening or an intimate jazz club setting.
+        </td>
+        </tr>
+      <tr>
+        <td>
+          <audio controls="controls">
+            <source src="samples/CommunitySamples/jazz1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+      </tr>
+
+     
+  
+        <tr>
+          <td  class="mono">
+            Very happy music like Kirby's game music. This is very happy music with piano, harmonica, flute. Metallophone and flute is playing a main melody. The melody is like Mozart's music. We feel very happy when we listen to this music. The beat counts to 2. The tempo of this song is 152.0 beats per minute. The key of this song is A major.
+          </td>
+      </tr>
+      
+      <tr>
+            <td>
+              <audio controls="controls">
+                <source src="samples/CommunitySamples/game1.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+            </td>
+      </tr>
+
+    </tbody>
+</table>
+</br>
+
+
+            <h2>
+                <font color="061E61">Examples from the expert listening study:</font>
+              </h2>
+
+<table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+  <thead>
+    <tr>
+      <th><a href="https://github.com/AMAAI-Lab/mustango">Mustango </a></th>
+      <th><a href="https://github.com/AMAAI-Lab/mustango">Mustango</a></th>
+      <th><a href="https://huggingface.co/spaces/declare-lab/tango">Tango</a></th>
+      <th><a href="https://huggingface.co/spaces/declare-lab/tango">Tango </a></th>
+      <th><a href="https://musicgen.com/">MusicGen</a></th>
+      <th><a href="https://github.com/haoheliu/AudioLDM2">AudioLDM2 </a></th>
+      
+      
+
+    </tr>
+    <tr>
+      <td><a href="https://github.com/AMAAI-Lab/mustango">Pretrained and finetuned on MusicBench</a></th>
+        <td><a href="https://github.com/AMAAI-Lab/mustango">Trained only on MusicBench</a></th>
+      <td><a href="https://huggingface.co/spaces/declare-lab/tango">Pretrained</a></th>
+      <td><a href="https://huggingface.co/spaces/declare-lab/tango">Pretrained and finetuned on MusicBench</a></th>
+      <td><a href="https://huggingface.co/facebook/musicgen-medium">MusicGen-medium</a></th>
+      <td><a href="https://huggingface.co/cvssp/audioldm2-music">AudioLDM2-music</a></th>
+        
+        
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="6"  class="mono">An instrumental blues melody played by a lead guitar and a strumming acoustic guitar. The acoustic guitarist's strumming keeps the rhythm steady. The chord sequence is G7, F7, C7, G7. This song goes at 100 beats per minute.
+    </td>
+</tr>
+<tr>
+  <td>
+    <audio controls="controls" style="width: 180px;"">
+      <source src="samples/mustango-pretrained/output_0.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </td>
+  <td>
+    <audio controls="controls" style="width: 180px;"">
+      <source src="samples/mustango-scratch/output_0.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/tango-pretrained/output_0.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/tango-pretrained-musicbench/output_0.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/musicgen-expert/output_0.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/audioldm2-expert/output_0.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+    </tr>
+
+    <tr>
+        <td colspan="6"  class="mono">A piano plays a popular melody over the chords of Am, Fmaj7, Cmaj7, G. There is only piano playing, no other instruments or voice. The tempo is Adagio.
+      </td>
+  </tr>
+
+    <tr>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/mustango-pretrained/output_2.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/mustango-scratch/output_2.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/tango-pretrained/output_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/tango-pretrained-musicbench/output_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/musicgen-expert/output_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/audioldm2-expert/output_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="6"  class="mono">This is a techno piece with drums and beats and a leading melody. A synth plays chords. The music kicks off with a powerful and relentless drumbeat. Over the pounding beats, a leading melody emerges. It has strong danceability and can be played in a club. The tempo is 160 bpm. The chords played by the synth are C, F, G.
+      </td>
+  </tr>
+
+    <tr>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/mustango-pretrained/output_9.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/mustango-scratch/output_9.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/tango-pretrained/output_9.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/tango-pretrained-musicbench/output_9.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/musicgen-expert/output_9.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/audioldm2-expert/output_9.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="6"  class="mono">A horn and a bass guitar groove to a reggae tune. The combination of the horn section's catchy melodies and the buoyant bassline creates an irresistible groove. The bassline is bouncy and lively. The song is played at the pace of Adagio. An electric keyboard plays the chords Am, Dm, G, C.
+      </td>
+  </tr>
+
+    <tr>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/mustango-pretrained/output_10.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/mustango-scratch/output_10.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/tango-pretrained/output_10.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/tango-pretrained-musicbench/output_10.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/musicgen-expert/output_10.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/audioldm2-expert/output_10.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="6"  class="mono">This is a metal song with a guitar, drums and bass guitar. The bassist, wielding a solid-bodied bass guitar, adds depth and power to the sonic landscape. The drummer commands a massive drum kit. With a relentless force, they pound out thunderous rhythms, driving the music forward. As the song begins, the guitar roars to life, delivering a series of distorted chords. It follows the chords of Em, C, G, D. The tempo is 120 bpm.
+      </td>
+  </tr>
+
+    <tr>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/mustango-pretrained/output_12.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/mustango-scratch/output_12.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/tango-pretrained/output_12.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/tango-pretrained-musicbench/output_12.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/musicgen-expert/output_12.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls="controls" style="width: 180px;"">
+            <source src="samples/audioldm2-expert/output_12.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+      </tr>
+
+
+
+
+
+      
+
+<!-- 
+    <tr>
+      <td style="color:red;">Dogs are barking and gunshot in the background</td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/temporal/AudioLDM-Lemon/dogs are barking and gunshot in the background.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/temporal/Tango2-RT/dogs are barking and gunshot in the background.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+    </tr>
+    <tr>
+      <td style="color:red;">Wooden table tapping sound while water pouring</td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/temporal/AudioLDM-Lemon/Wooden table tapping sound while water pouring.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/temporal/Tango2-RT/Wooden table tapping sound while water pouring.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+    </tr>
+    <tr>
+      <td style="color:red;">Two gunshots followed by birds flying away while chirping</td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/temporal/AudioLDM-Lemon/two gunshots followed by birds flying away while chirping.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+          <source src="samples/temporal/Tango2-RT/two gunshots followed by birds flying away while chirping.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+    </tr> -->
+
+
+  </tbody>
+</table>
+
+<!-- <hr> -->
+<!-- <h2>
+  <font color="061E61">Samples from the paper appendix:</font>
+</h2>
+
+<table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+  <thead>
+    <tr>
+      <th><a href="https://github.com/AMAAI-Lab/mustango">Mustango </a></th>
+      <th><a href="https://github.com/AMAAI-Lab/mustango">Mustango</a></th>
+      <th><a href="https://huggingface.co/spaces/declare-lab/tango">Tango</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="3" class="mono">An instrumental blues melody played by a lead guitar and a strumming acoustic guitar.
+        The acoustic guitarist's strumming keeps the rhythm steady. The chord sequence is G7, F7, C7, G7. This song goes
+        at 100 beats per minute.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+            <source src=" samples/mustango-pretrained/output_10.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+            <source src=" samples/mustango-scratch/output_10.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+              <source src=" samples/tango-pretrained/output_10.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="3" class="mono">This is a metal song with a guitar, drums and bass guitar. The bassist, wielding a
+        solid-bodied bass guitar, adds depth and power to the sonic landscape. The drummer commands a massive drum kit.
+        With a relentless force, they pound out thunderous rhythms, driving the music forward. As the song begins, the
+        guitar roars to life, delivering a series of distorted chords. It follows the chords of Em, C, G, D. The tempo
+        is 120 bpm.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="img/mustango_classical_crescendo2b-min.png" width="350">
+      </td>
+      <td>
+        <img src="img/mustango_classical_crescendo2b-min.png" width="350">
+      </td>
+      <td>
+        <img src="img/mustango_classical_crescendo2b-min.png" width="350">
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+            <source src=" samples/mustango-pretrained/output_12.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+            <source src=" samples/mustango-scratch/output_12.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td>
+        <audio controls="controls" style="width: 180px;"">
+              <source src=" samples/tango-pretrained/output_12.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+    </tr>
+  </tbody>
+</table> -->
+
+            <hr>
+            <!-- <h2 id="Limitations">
+              <font color="000093">Limitations</font>
+            </h2>
+            <div class="container">
+              <p>
+                -
+               </p>
+            </div>             -->
+            <h3 id="Other comments">
+              <font color="000093">Notes</font>
+            </h3>
+            <div class="container">
+              <p>
+                Our <a href="https://github.com/AMAAI-Lab/mustango">code and dataset</a> are available on github as open source. We thus aim to facilitate future music generation model development, training and evaluation. 
+              </p>
+            </div>
+            <!-- <h3 id="Acknowledgement">
+              <font color="000093">Acknowledgement</font>
+            </h3
+            <div class="container">
+              <p>
+                This website is created based on <a href = "https://github.com/AudioLDM/AudioLDM.github.io"> https://github.com/AudioLDM/AudioLDM.github.io </a>
+              </p>
+            </div>  -->
+          </section>
+        </article>
+      </main>
+
+    </div>
+
+
+
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+         HTML: ["input/TeX","output/HTML-CSS"],
+         TeX: {
+                Macros: {
+                         bm: ["\\boldsymbol{#1}", 1],
+                         argmax: ["\\mathop{\\rm arg\\,max}\\limits"],
+                         argmin: ["\\mathop{\\rm arg\\,min}\\limits"]},
+                extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" } },
+         extensions: ["tex2jax.js"],
+         jax: ["input/TeX","output/HTML-CSS"],
+         tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true },
+         "HTML-CSS": { availableFonts: ["TeX"],
+                       linebreaks: { automatic: true } }
+     });
+ </script>
+
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+       tex2jax: {
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+       }
+     });
+ </script>
+
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+      </script>
+
+
+</body>
+
+</html>

@@ -11,7 +11,7 @@ model_save_path = "./ModelsFinetuned/New/MusicgenMedium_with_adapters_EncoderDec
 output_audio_path = "./GeneratedAudios/1.wav"  # Path to save the generated audio
 AudioWaveform_graph_path = "./GeneratedGraphs/1.jpeg"  # Path to save the plot of generated audio
 sample_rate = 16000  # Desired sample rate for the output audio
-adapter_bottleneck_dim = 4000  # Use the same dimension as training
+adapter_bottleneck_dim = 32  # Use the same dimension as training
 max_new_tokens = 512 # To control length of music piece generated 512 = 10 sec
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
  

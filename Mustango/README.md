@@ -85,6 +85,10 @@ The arguments `--uncondition_all`, `--uncondition_single`, `--drop_sentences` co
 
 Recommended training time from scratch on Hindustani Classical/Turkish Makam is at least 10-15 epochs.
 
+## Evaluation
+
+The inference scripts above help in computing the evaluation metrics with the given model outputs. The `audioldm_eval` folder contains the scripts for evaluation metrics. For the prompts used for Bloom's taxonomy based evaluation the folders `bloom_prompt_hindustani` & `bloom_prompt_makam` contain the prompts based on which these models are evaluated with the help of human evaluations.
+
 
 ## Model Zoo
 

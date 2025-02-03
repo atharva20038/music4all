@@ -99,11 +99,7 @@ The table below presents the **human evaluation scores (ELO Ratings)** for **Hin
 ## Citation
 Please consider citing the following article if you found our work useful:
 ```
-@misc{melechovsky2023mustango,
-      title={Mustango: Toward Controllable Text-to-Music Generation}, 
-      author={Jan Melechovsky and Zixun Guo and Deepanway Ghosal and Navonil Majumder and Dorien Herremans and Soujanya Poria},
-      year={2023},
-      eprint={2311.08355},
-      archivePrefix={arXiv},
+@misc{
+  
 }
 ```

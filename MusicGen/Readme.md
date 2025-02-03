@@ -7,7 +7,7 @@
 ## Quickstart Guide
 
 ### Generate music from a text prompt  
-Run the following command to automate safetensor-to-bin conversion and generate music using your model:  
+Run the following command to train the model:  
 
 ```sh
 python Training.py
@@ -45,26 +45,46 @@ Below table provides an overview of the key hyperparameters and paths used in th
 This configuration is optimized for fine-tuning **MusicGen** with **adapter-based modifications** for improved music generation capabilities.
 
 
-### Example Scenarios  
+### Example Scenarios
+Run the following command to generate audio's using your model:  
 
-#### 1️⃣ Run inference on trained model  
 ```sh
-python automate_inference.py --model saved/1734429910/model_2.bin \
-                 --test_files processed_sampled_data.json test_data.json \
-                 --original_args saved/1734429910/summary.jsonl \
-                 --test_references test_reference_data
+python GenerateAudio.py
+
 ```
 
-#### 2️⃣ Run baseline inference only  
-```sh
-python automate_inference.py --model saved/1734429910/model_2.bin \
-                 --test_files processed_sampled_data.json \
-                 --original_args config.json \
-                 --test_references reference_dataset \
-                 --baseline
-```
+# Inference Configuration
 
-This guide ensures that you can quickly get started with generating and evaluating music models with minimal setup! 🚀
+This table provides an overview of the key parameters used in the **inference process** for generating music.
+
+| Parameter                 | Description                                               | Value                                                      |
+|---------------------------|-----------------------------------------------------------|------------------------------------------------------------|
+| **Pretrained Model**      | Name of the pre-trained MusicGen model used for inference. | `facebook/musicgen-medium`                                  |
+| **Fine-tuned Model Path** | Path where the fine-tuned model is stored.                | `./ModelsFinetuned/New/MusicgenMedium_with_adapters_EncoderDecoder.pt` |
+| **Output Audio Path**     | Path where the generated audio file is saved.             | `./GeneratedAudios/1.wav`                                  |
+| **Waveform Graph Path**   | Path where the waveform visualization is stored.          | `./GeneratedGraphs/1.jpeg`                                 |
+| **Sample Rate**           | Desired sample rate for the generated audio.              | `16,000 Hz`                                                |
+| **Adapter Bottleneck Dim**| Size of the bottleneck layer in the adapter network.      | `4000`                                                     |
+| **Max New Tokens**        | Controls the length of the generated music (512 ≈ 10 sec). | `512`                                                      |
+| **Device**               | Specifies whether to use GPU or CPU for inference.        | `CUDA if available, else CPU`                             |
+| **Use Fine-tuned Model**  | Determines whether to use the fine-tuned model or pre-trained. | `True` (uses fine-tuned model)                            |
+
+## Explanation of Key Components:
+- **Pretrained Model**: Uses `facebook/musicgen-medium`, which is fine-tuned for customized music generation.
+- **Fine-tuned Model Path**: If `use_finetuned_model = True`, the model loads from this path.
+- **Waveform Graph Path**: Saves the waveform visualization as an image.
+- **Max New Tokens**: Higher values generate longer music samples.
+- **Device Selection**: Automatically chooses GPU (if available) for faster inference.
+
+### 🔥 How the Inference Works:
+1. The **model is loaded** (`pre-trained` or `fine-tuned` based on configuration).
+2. The user **inputs a text prompt** describing the music to be generated.
+3. The model **generates an audio waveform** based on the text input.
+4. The generated music is **saved as a `.wav` file**.
+5. A **waveform graph** is plotted and saved for visualization.
+
+This setup ensures **efficient, high-quality music generation** using **MusicGen with adapter-based fine-tuning**. 🚀
+
 
 
 ## Installation

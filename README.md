@@ -33,7 +33,36 @@ In MusicGen, we enhance the model with an additional 2 million parameters by int
 
 The total parameter count of both the models is ~2 billion, making the adapter only 0.1% of the total size (2M params).
 
+For both models we used two RTX A6000 GPUs over a period of around 10 hours. The adapter block was fine-tuned, using the AdamW optimizer using MSE (Reconstruction Loss).
+
 ## Evaluations
+## **Objective Evaluation Metrics for Music Models**
+
+The table below presents the **objective evaluation metrics** for **Hindustani Classical Music** and **Turkish Makam**, assessing the quality of generated music based on **Fréchet Audio Distance (FAD)**, **Fréchet Distance (FD)**, **Kullback-Leibler Divergence (KLD)**, and **Peak Signal-to-Noise Ratio (PSNR)**.
+
+### **Hindustani Classical Music**
+| **Model**  | **FAD ↓** | **FD ↓** | **KLD ↓** | **PSNR ↑** |
+|------------|----------|----------|----------|----------|
+| **MGB**    | 40.05    | 75.76    | 6.53     | 16.23   |
+| **MGF**    | 40.04    | 72.65    | 6.12     | 16.18   |
+| **MTB**    | 6.36     | 45.31    | 2.73     | 16.78   |
+| **MTF**    | **5.18** | **22.03** | **1.26** | **17.70** |
+
+### **Turkish Makam**
+| **Model**  | **FAD ↓** | **FD ↓** | **KLD ↓** | **PSNR ↑** |
+|------------|----------|----------|----------|----------|
+| **MGB**    | 39.65    | 57.29    | 7.35     | 14.60   |
+| **MGF**    | 39.68    | 56.71    | 7.21     | 14.46   |
+| **MTB**    | 8.65     | 75.21    | 6.01     | **16.60** |
+| **MTF**    | **2.57** | **20.56** | **4.81** | 16.17   |
+
+### **Legend**
+- **FAD (↓)**: Lower values indicate better **Fréchet Audio Distance**.
+- **FD (↓)**: Lower values suggest better **Fréchet Distance**.
+- **KLD (↓)**: Lower values signify improved **Kullback-Leibler Divergence**.
+- **PSNR (↑)**: Higher values indicate better **Peak Signal-to-Noise Ratio**.
+
+📌 **Bold values indicate the best performance for each metric.**
 
 
 

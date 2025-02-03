@@ -43,7 +43,7 @@ The table below presents the **objective evaluation metrics** for **Hindustani C
 <div style="display: flex; flex-direction: row; justify-content: space-between;">
 
 <!-- Hindustani Classical Music Table -->
-<table>
+<table style="width:45%">
 <caption><b>Hindustani Classical Music</b></caption>
 <tr>
 <th>Model</th><th>FAD ↓</th><th>FD ↓</th><th>KLD ↓</th><th>PSNR ↑</th>
@@ -53,9 +53,8 @@ The table below presents the **objective evaluation metrics** for **Hindustani C
 <tr><td><b>MTB</b></td><td>6.36</td><td>45.31</td><td>2.73</td><td>16.78</td></tr>
 <tr><td><b>MTF</b></td><td><b>5.18</b></td><td><b>22.03</b></td><td><b>1.26</b></td><td><b>17.70</b></td></tr>
 </table>
-
 <!-- Turkish Makam Table -->
-<table>
+<table style="width:45%">
 <caption><b>Turkish Makam</b></caption>
 <tr>
 <th>Model</th><th>FAD ↓</th><th>FD ↓</th><th>KLD ↓</th><th>PSNR ↑</th>

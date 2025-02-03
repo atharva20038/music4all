@@ -13,7 +13,7 @@ from models import MusicAudioDiffusion
 
 
 class MusicFeaturePredictor:
-    def __init__(self, path, device="cuda:0", cache_dir=None, local_files_only=False):
+    def __init__(self, path, device="cuda", cache_dir=None, local_files_only=False):
         self.beats_tokenizer = AutoTokenizer.from_pretrained(
             "microsoft/deberta-v3-large",
             cache_dir=cache_dir,
@@ -136,7 +136,7 @@ class Mustango:
     def __init__(
         self,
         name="declare-lab/mustango",
-        device="cuda:0",
+        device="cuda",
         cache_dir=None,
         local_files_only=False,
     ):

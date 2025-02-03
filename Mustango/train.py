@@ -391,9 +391,9 @@ def main():
 
     pretrained_model_name = "audioldm-s-full"
     vae, stft = build_pretrained_models(pretrained_model_name)
-    music_model = Mustango("declare-lab/mustango-pretrained", device="cuda:0")
+    music_model = Mustango("declare-lab/mustango-pretrained", device="cuda")
     
-    device = torch.device("cuda:0")
+    device = torch.device("cuda")
 
     # vae, stft = music_model.vae, music_model.stft
     model = music_model.model
@@ -404,7 +404,7 @@ def main():
 
     if args.hf_model:
         hf_model_path = snapshot_download(repo_id=args.hf_model)
-        model.load_state_dict(torch.load("{}/pytorch_model_main.bin".format(hf_model_path), map_location="cuda:0"))
+        model.load_state_dict(torch.load("{}/pytorch_model_main.bin".format(hf_model_path), map_location="cuda"))
         accelerator.print("Successfully loaded checkpoint from:", args.hf_model)
         
     if args.prefix:

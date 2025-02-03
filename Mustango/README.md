@@ -1,18 +1,7 @@
 <div align="center">
 
-# Mustango: Toward Controllable Text-to-Music Generation
+# Mustango
 
-[Demo](https://huggingface.co/spaces/declare-lab/mustango) | [Model](https://huggingface.co/declare-lab/mustango) | [Website and Examples](https://amaai-lab.github.io/mustango/) | [Paper](https://arxiv.org/abs/2311.08355) | [Dataset](https://huggingface.co/datasets/amaai-lab/MusicBench)
-
-[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/declare-lab/mustango)
-</div>
-
-Meet Mustango, an exciting addition to the vibrant landscape of Multimodal Large Language Models designed for controlled music generation. Mustango leverages Latent Diffusion Model (LDM), Flan-T5, and musical features to do the magic!
-
-🔥 Live demo available on [Replicate](https://replicate.com/declare-lab/mustango) and [HuggingFace](https://huggingface.co/spaces/declare-lab/mustango).
-
-<div align="center">
-  <img src="img/mustango.jpg" width="500"/>
 </div>
 
 
@@ -44,20 +33,6 @@ cd diffusers
 pip install -e .
 ```
 
-## Datasets
-
-The [MusicBench](https://huggingface.co/datasets/amaai-lab/MusicBench) dataset contains 52k music fragments with a rich music-specific text caption. 
-## Subjective Evaluation by Expert Listeners
-
-| **Model** | **Dataset** | **Pre-trained** | **Overall Match** ↑ | **Chord Match** ↑ | **Tempo Match** ↑ | **Audio Quality** ↑ | **Musicality** ↑ | **Rhythmic Presence and Stability** ↑ | **Harmony and Consonance** ↑ |
-|-----------|-------------|:-----------------:|:-----------:|:-----------:|:-----------:|:----------:|:----------:|:----------:|:----------:|
-| Tango     | MusicCaps   | ✓               | 4.35      | 2.75      | 3.88      | 3.35     | 2.83     | 3.95     | 3.84     |
-| Tango     | MusicBench  | ✓               | 4.91      | 3.61      | 3.86      | 3.88     | 3.54     | 4.01     | 4.34     |
-| Mustango  | MusicBench  | ✓               | 5.49      | 5.76      | 4.98      | 4.30     | 4.28     | 4.65     | 5.18     |
-| Mustango  | MusicBench  | ✗               | 5.75      | 6.06      | 5.11      | 4.80     | 4.80     | 4.75     | 5.59     |
-
-
-
 
 ## Training
 
@@ -86,19 +61,7 @@ Recommended training time from scratch on MusicBench is at least 40 epochs.
 We have released the following models:
 
 Mustango Pretrained: https://huggingface.co/declare-lab/mustango-pretrained
+Mustango Adapted: https://huggingface.co/athi180202/music4all_mustango
 
 
-Mustango: https://huggingface.co/declare-lab/mustango
 
-
-## Citation
-Please consider citing the following article if you found our work useful:
-```
-@misc{melechovsky2023mustango,
-      title={Mustango: Toward Controllable Text-to-Music Generation}, 
-      author={Jan Melechovsky and Zixun Guo and Deepanway Ghosal and Navonil Majumder and Dorien Herremans and Soujanya Poria},
-      year={2023},
-      eprint={2311.08355},
-      archivePrefix={arXiv},
-}
-```

@@ -1,2 +1,1 @@
-conda activate Test
 python train.py --text_encoder_name="google/flan-t5-large" --scheduler_name="stabilityai/stable-diffusion-2-1" --unet_model_config="configs/diffusion_model_config_munet.json" --model_type Mustango --freeze_text_encoder --uncondition_all --uncondition_single --drop_sentences --random_pick_text_column --snr_gamma 5 --train_file "data/metadata_train_hindustani.json" --validation_file "data/metadata_val_hindustani.json" --validation_file2 "data/metadata_val_hindustani.json" --test_file "data/metadata_test_hindustani.json"

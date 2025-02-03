@@ -886,10 +886,10 @@ class UNetMidBlock2DCrossAttnMusic(nn.Module):
                 encoder_attention_mask=chord_attention_mask,
             ).sample
             
-            hidden_states_1 = adapter_p(hidden_states)
+            hidden_states = hidden_states + self.adapter(hidden_states)
             hidden_states = resnet(hidden_states, temb)
             
-            hidden_states = hidden_states + hidden_states_1
+            hidden_states = hidden_states
 
 
         return hidden_states

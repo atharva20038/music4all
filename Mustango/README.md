@@ -4,24 +4,55 @@
 
 </div>
 
+Here's the **README.md** formatted version with proper markdown syntax:  
 
+```md
 ## Quickstart Guide
 
-Generate music from a text prompt:
+### Generate music from a text prompt  
+Run the following command to automate safetensor-to-bin conversion and generate music using your model:  
 
-```python
-import IPython
-import soundfile as sf
-from mustango import Mustango
+```sh
+python script.py --model saved/1734429910/model_2.bin \
+                 --test_files processed_sampled_data.json test_data.json \
+                 --original_args saved/1734429910/summary.jsonl \
+                 --test_references test_reference_data
 
-model = Mustango("declare-lab/mustango")
-
-prompt = "This is a new age piece. There is a flute playing the main melody with a lot of staccato notes. The rhythmic background consists of a medium tempo electronic drum beat with percussive elements all over the spectrum. There is a playful atmosphere to the piece. This piece can be used in the soundtrack of a children's TV show or an advertisement jingle."
-
-music = model.generate(prompt)
-sf.write(f"{prompt}.wav", audio, samplerate=16000)
-IPython.display.Audio(data=music, rate=16000)
 ```
+
+### Arguments Explained  
+
+| Argument            | Description |
+|---------------------|-------------|
+| `--model`      | **(Required)** Path to the directory containing `.safetensors` and `.bin` model files. This is where the models are stored for conversion and inference. |
+| `--test_files`     | **(Required)** One or more test JSON files containing input prompts for generating music. You can provide multiple test files by separating them with spaces. |
+| `--original_args`  | **(Required)** Path to the JSON file containing original model arguments (e.g., training configurations). |
+| `--test_references`| **(Required)** Path to the test reference dataset, which provides ground truth or benchmark data for evaluating model outputs. |
+| `--baseline`       | **(Optional)** If included, runs inference using a baseline model. Exclude this flag to run inference on all models in the directory. |
+
+### Example Scenarios  
+
+#### 1️⃣ Run inference on trained model  
+```sh
+python script.py --model saved/1734429910/model_2.bin \
+                 --test_files processed_sampled_data.json test_data.json \
+                 --original_args saved/1734429910/summary.jsonl \
+                 --test_references test_reference_data
+```
+
+#### 2️⃣ Run baseline inference only  
+```sh
+python script.py --model saved/1734429910/model_2.bin \
+                 --test_files test_data.json \
+                 --original_args config.json \
+                 --test_references reference_dataset \
+                 --baseline
+```
+
+This guide ensures that you can quickly get started with generating and evaluating music models with minimal setup! 🚀
+```
+
+This markdown format ensures proper rendering in GitHub and other markdown-compatible platforms. Let me know if you need further refinements! 🚀
 
 ## Installation
 

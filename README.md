@@ -40,33 +40,13 @@ For both models we used two RTX A6000 GPUs over a period of around 10 hours. The
 
 The table below presents the **objective evaluation metrics** for **Hindustani Classical Music** and **Turkish Makam**, assessing the quality of generated music based on **Fréchet Audio Distance (FAD)**, **Fréchet Distance (FD)**, **Kullback-Leibler Divergence (KLD)**, and **Peak Signal-to-Noise Ratio (PSNR)**.
 
-<div style="display: flex; flex-direction: row; justify-content: space-between;">
+| **Hindustani Classical Music** | **FAD ↓** | **FD ↓** | **KLD ↓** | **PSNR ↑** || **Turkish Makam** | **FAD ↓** | **FD ↓** | **KLD ↓** | **PSNR ↑** |
+|--------------------------------|----------|----------|----------|----------||----------------|----------|----------|----------|----------|
+| **MGB**  | 40.05  | 75.76  | 6.53  | 16.23  || **MGB**  | 39.65  | 57.29  | 7.35  | 14.60  |
+| **MGF**  | 40.04  | 72.65  | 6.12  | 16.18  || **MGF**  | 39.68  | 56.71  | 7.21  | 14.46  |
+| **MTB**  | 6.36  | 45.31  | 2.73  | 16.78  || **MTB**  | 8.65  | 75.21  | 6.01  | **16.60**  |
+| **MTF**  | **5.18**  | **22.03**  | **1.26**  | **17.70**  || **MTF**  | **2.57**  | **20.56**  | **4.81**  | 16.17  |
 
-<!-- Hindustani Classical Music Table -->
-<table>
-<caption><b>Hindustani Classical Music</b></caption>
-<tr>
-<th>Model</th><th>FAD ↓</th><th>FD ↓</th><th>KLD ↓</th><th>PSNR ↑</th>
-</tr>
-<tr><td><b>MGB</b></td><td>40.05</td><td>75.76</td><td>6.53</td><td>16.23</td></tr>
-<tr><td><b>MGF</b></td><td>40.04</td><td>72.65</td><td>6.12</td><td>16.18</td></tr>
-<tr><td><b>MTB</b></td><td>6.36</td><td>45.31</td><td>2.73</td><td>16.78</td></tr>
-<tr><td><b>MTF</b></td><td><b>5.18</b></td><td><b>22.03</b></td><td><b>1.26</b></td><td><b>17.70</b></td></tr>
-</table>
-
-<!-- Turkish Makam Table -->
-<table>
-<caption><b>Turkish Makam</b></caption>
-<tr>
-<th>Model</th><th>FAD ↓</th><th>FD ↓</th><th>KLD ↓</th><th>PSNR ↑</th>
-</tr>
-<tr><td><b>MGB</b></td><td>39.65</td><td>57.29</td><td>7.35</td><td>14.60</td></tr>
-<tr><td><b>MGF</b></td><td>39.68</td><td>56.71</td><td>7.21</td><td>14.46</td></tr>
-<tr><td><b>MTB</b></td><td>8.65</td><td>75.21</td><td>6.01</td><td><b>16.60</b></td></tr>
-<tr><td><b>MTF</b></td><td><b>2.57</b></td><td><b>20.56</b></td><td><b>4.81</b></td><td>16.17</td></tr>
-</table>
-
-</div>
 
 
 

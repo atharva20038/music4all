@@ -22,7 +22,7 @@ The [MTG-Saraga](https://mtg.github.io/saraga/) dataset contains 40+ hours of Hi
 ## Adapter Positioning
 
 <div align="center">
-  <img src="img/model_settings.pdf" width="900"/>
+  <img src="img/model_settings-1.png" width="900"/>
 </div>
 
 ### Mustango

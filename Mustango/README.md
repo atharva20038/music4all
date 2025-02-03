@@ -40,22 +40,20 @@ python script.py --model saved/1734429910/model_2.bin \
 #### 2️⃣ Run baseline inference only  
 ```sh
 python script.py --model saved/1734429910/model_2.bin \
-                 --test_files test_data.json \
+                 --test_files processed_sampled_data.json \
                  --original_args config.json \
                  --test_references reference_dataset \
                  --baseline
 ```
 
 This guide ensures that you can quickly get started with generating and evaluating music models with minimal setup! 🚀
-```
 
-This markdown format ensures proper rendering in GitHub and other markdown-compatible platforms. Let me know if you need further refinements! 🚀
 
 ## Installation
 
 ```bash
-git clone https://github.com/AMAAI-Lab/mustango
-cd mustango
+git clone https://github.com/atharva20038/music4all
+cd Mustango
 pip install -r requirements.txt
 cd diffusers
 pip install -e .
@@ -66,29 +64,32 @@ pip install -e .
 
 We use the `accelerate` package from Hugging Face for multi-gpu training. Run `accelerate config` from terminal and set up your run configuration by the answering the questions asked.
 
-You can now train **Mustango** on the MusicBench dataset using:
+You can now train **Mustango** on the Hindustani Classical/Turkish Makam dataset using:
 
 ```bash
-accelerate launch train.py \
---text_encoder_name="google/flan-t5-large" \
---scheduler_name="stabilityai/stable-diffusion-2-1" \
---unet_model_config="configs/diffusion_model_config_munet.json" \
---model_type Mustango --freeze_text_encoder --uncondition_all --uncondition_single \
---drop_sentences --random_pick_text_column --snr_gamma 5 \
+accelerate launch --text_encoder_name="google/flan-t5-large" 
+                  --scheduler_name="stabilityai/stable-diffusion-2-1" 
+                  --unet_model_config="configs/diffusion_model_config_munet.json" 
+                  --model_type Mustango 
+                  --freeze_text_encoder 
+                  --uncondition_all --uncondition_single --drop_sentences --snr_gamma 5 
+                  --train_file "data/metadata_train_hindustani.json" 
+                  --validation_file "data/metadata_val_hindustani.json" 
+                  --validation_file2 "data/metadata_val_hindustani.json" 
+                  --test_file "data/metadata_test_hindustani.json"
 ```
 
 The `--model_type` flag allows to choose either Mustango, or Tango to be trained with the same code. However, do note that you also need to change `--unet_model_config` to the relevant config: diffusion_model_config_munet for Mustango; diffusion_model_config for Tango.
 
-The arguments `--uncondition_all`, `--uncondition_single`, `--drop_sentences` control the dropout functions as per Section 5.2 in our paper. The argument of `--random_pick_text_column` allows to randomly pick between two input text prompts - in the case of MusicBench, we pick between ChatGPT rephrased captions and original enhanced MusicCaps prompts, as depicted in Figure 1 in our paper.
+The arguments `--uncondition_all`, `--uncondition_single`, `--drop_sentences` control the dropout functions. The `--train_file`, `--validation_file`, `--validation_file2`, `--test_file` files control the train/val/test splits. We have added samples of our files in `data` folder for format reference of input prompts in training. For audio only training, the data needs to be modified by keeping chords empty and beats 0 or other variables false. They are excluded from our training code as well during training by making these attributes empty during training.    
 
-Recommended training time from scratch on MusicBench is at least 40 epochs.
+Recommended training time from scratch on Hindustani Classical/Turkish Makam is at least 10-15 epochs.
 
 
 ## Model Zoo
 
 We have released the following models:
 
-Mustango Pretrained: https://huggingface.co/declare-lab/mustango-pretrained
 Mustango Adapted: https://huggingface.co/athi180202/music4all_mustango
 
 

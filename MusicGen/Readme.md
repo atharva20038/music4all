@@ -10,7 +10,7 @@
 Run the following command to train the model:  
 
 ```sh
-python Training.py
+./run.sh
 
 ```
 

@@ -7,7 +7,8 @@ This repository contains our code for the paper:  "Music for All : Representatio
 
 ## Datasets
 
-The [MusicBench](https://huggingface.co/datasets/amaai-lab/MusicBench) dataset contains 52k music fragments with a rich music-specific text caption. 
+The [Compmusic](https://compmusic.upf.edu/datasets) dataset contains 120+ hours of Turkish Makam and Hindustani Classical data.
+The [MTG-Saraga](https://mtg.github.io/saraga/) dataset contains 40+ hours of Hindustani Classical annotated data. 
 
 ## Citation
 Please consider citing the following article if you found our work useful:

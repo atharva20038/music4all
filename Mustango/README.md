@@ -10,7 +10,7 @@
 Run the following command to automate safetensor-to-bin conversion and generate music using your model:  
 
 ```sh
-python script.py --model saved/1734429910/model_2.bin \
+python automate_inference.py --model saved/1734429910/model_2.bin \
                  --test_files processed_sampled_data.json test_data.json \
                  --original_args saved/1734429910/summary.jsonl \
                  --test_references test_reference_data
@@ -31,7 +31,7 @@ python script.py --model saved/1734429910/model_2.bin \
 
 #### 1️⃣ Run inference on trained model  
 ```sh
-python script.py --model saved/1734429910/model_2.bin \
+python automate_inference.py --model saved/1734429910/model_2.bin \
                  --test_files processed_sampled_data.json test_data.json \
                  --original_args saved/1734429910/summary.jsonl \
                  --test_references test_reference_data
@@ -39,7 +39,7 @@ python script.py --model saved/1734429910/model_2.bin \
 
 #### 2️⃣ Run baseline inference only  
 ```sh
-python script.py --model saved/1734429910/model_2.bin \
+python automate_inference.py --model saved/1734429910/model_2.bin \
                  --test_files processed_sampled_data.json \
                  --original_args config.json \
                  --test_references reference_dataset \

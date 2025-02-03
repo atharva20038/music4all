@@ -1,7 +1,7 @@
 # Music4All
 This repository contains our code for the paper:  "Music for All : Representational bias and cross-cultural adaptability in Music generation models."
 
-[Demo](https://huggingface.co/spaces/declare-lab/mustango) | [Model](https://huggingface.co/declare-lab/mustango) | [Website and Examples](https://amaai-lab.github.io/mustango/) | [Paper](https://arxiv.org/abs/2311.08355) | [Dataset](https://huggingface.co/datasets/amaai-lab/MusicBench)
+[Survey](https://atharva20038.github.io/aimusicexamples.github.io/) | [Model](https://huggingface.co/collections/athi180202/music4all-67a0778b5b562859c2a9a8e1) | [Paper](https://arxiv.org/abs/2311.08355) | 
 
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/collections/athi180202/music4all-67a0778b5b562859c2a9a8e1)
 
@@ -15,6 +15,10 @@ This repository contains our code for the paper:  "Music for All : Representatio
 The [Compmusic](https://compmusic.upf.edu/datasets) dataset contains 120+ hours of Turkish Makam and Hindustani Classical data.
 
 The [MTG-Saraga](https://mtg.github.io/saraga/) dataset contains 40+ hours of Hindustani Classical annotated data. 
+
+## Evaluations
+
+
 
 ## Citation
 Please consider citing the following article if you found our work useful:

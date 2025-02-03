@@ -7,7 +7,7 @@ This repository contains our code for the paper:  "Music for All : Representatio
 
 ## Global Music Generation Analysis
 <div align="center">
-  <img src="img/dataset_infographic_v7.png" width="500"/>
+  <img src="img/dataset_infographic_v7.png" width="900"/>
 </div>
 
 ## Datasets

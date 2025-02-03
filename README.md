@@ -17,7 +17,10 @@ We then investigate the efficacy of *Parameter-Efficient Fine-Tuning (PEFT)* tec
 
 The [Compmusic](https://compmusic.upf.edu/datasets) dataset contains 120+ hours of Turkish Makam and Hindustani Classical data.
 
-The [MTG-Saraga](https://mtg.github.io/saraga/) dataset contains 40+ hours of Hindustani Classical annotated data. 
+The [MTG-Saraga](https://mtg.github.io/saraga/) dataset contains 40+ hours of Hindustani Classical annotated data.
+
+For Hindustani Classical, the dataset includes five instrument types—sarangi, harmonium, tabla, violin, and tanpura—along with voice. It comprises 41 ragas across two laya types: Madhya and Vilambit.
+The dataset features 15 instruments specific to Turkish makam, including the oud, tanbur, ney, davul, clarinet, kös, kudüm, yaylı tanbur, tef, kanun, zurna, bendir, darbuka, classical kemençe, rebab, and çevgen. It encompasses 93 different makams and 63 distinct usuls.
 
 ## Adapter Positioning
 
@@ -32,8 +35,7 @@ To enhance this process, a Bottleneck Residual Adapter with convolution layers i
 In MusicGen, we enhance the model with an additional 2 million parameters by integrating Linear Bottleneck Residual Adapter after the transformer decoder within the MusicGen architecture after thorough experimentation with other placements.
 
 The total parameter count of both the models is ~2 billion, making the adapter only 0.1% of the total size (2M params).
-
-For both models we used two RTX A6000 GPUs over a period of around 10 hours. The adapter block was fine-tuned, using the AdamW optimizer using MSE (Reconstruction Loss).
+For both models, we used two RTX A6000 GPUs over a period of around 10 hours. The adapter block was fine-tuned, using the AdamW optimizer using MSE (Reconstruction Loss).
 
 ## Evaluations
 ### **Objective Evaluation Metrics for Music Models**

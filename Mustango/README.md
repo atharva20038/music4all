@@ -4,9 +4,6 @@
 
 </div>
 
-Here's the **README.md** formatted version with proper markdown syntax:  
-
-```md
 ## Quickstart Guide
 
 ### Generate music from a text prompt  

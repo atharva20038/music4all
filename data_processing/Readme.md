@@ -60,3 +60,41 @@ After running the script, **makam.csv** will contain:
 | `usul`       | Usul (rhythmic pattern) |
 | `instrument` | Instruments used in the recording |
 | `audio_path` | File path where the MP3 is saved |
+
+## Chunking & Metadata Generation
+
+This script **processes Hindustani Classical music recordings**, **splits them into 30-second audio chunks**, and **saves the metadata** into a structured CSV file.
+
+---
+
+### **🔹 Features**  
+**Processes and chunks audio files** while maintaining metadata  
+**Ensures uniform frame rate (32kHz) for all chunks**  
+**Extracts meaningful 30-second segments** from 20% to 90% of the track length  
+
+---
+
+### **📌 Output Files**  
+- **Audio Chunks** → Stored in the `chunks/` directory  
+- **Updated Metadata** → `new_metadata_hindustani.csv`  
+
+---
+
+### **⚡ Execution Example**  
+To run the script, navigate to the directory and execute:
+
+```sh
+python process_hindu_data.py
+```
+
+or 
+
+```sh
+python process_hindu_data.py
+```
+
+**After execution:**  
+- The processed **30-second chunks** will be stored in the `chunks/` folder.  
+- The **new metadata file (`new_metadata_hindustani.csv`)** will be created, containing information about each chunk.  
+
+

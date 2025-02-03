@@ -97,4 +97,33 @@ python process_hindu_data.py
 - The processed **30-second chunks** will be stored in the `chunks/` folder.  
 - The **new metadata file (`new_metadata_hindustani.csv`)** will be created, containing information about each chunk.  
 
+## **Prompt Generation & Dataset Split**  
 
+This script **automatically generates curated prompts** for **Turkish Makam music compositions** based on **instrument, makam, usul** metadata. It then **splits the dataset into train (70%), validation (10%), and test (20%)** sets.
+
+---
+
+### **📌 Output Files**  
+- **`train_Curated_Turkish_Makam_Prompts.csv`** (70%)  
+- **`val_Curated_Turkish_Makam_Prompts.csv`** (10%)  
+- **`test_Curated_Turkish_Makam_Prompts.csv`** (20%)  
+
+---
+
+### **⚡ Execution Example**  
+To run the script, navigate to the directory and execute:
+
+```sh
+python process_clipped_meta_hindu.py
+```
+
+or 
+
+```sh
+python process_clipped_meta_makam.py
+```
+
+**After execution:**  
+- **Curated prompts** will be generated for Turkish Makam music.  
+- The dataset will be **split into train, validation, and test sets**.  
+- The **new metadata files (`train_Curated_Turkish_Makam_Prompts.csv`, etc.)** will be saved.  

@@ -14,15 +14,36 @@ python Training.py
 
 ```
 
-### Arguments Explained  
+# Training Configuration
 
-| Argument            | Description |
-|---------------------|-------------|
-| `--model`      | **(Required)** Path to the directory containing `.safetensors` and `.bin` model files. This is where the models are stored for conversion and inference. |
-| `--test_files`     | **(Required)** One or more test JSON files containing input prompts for generating music. You can provide multiple test files by separating them with spaces. |
-| `--original_args`  | **(Required)** Path to the JSON file containing original model arguments (e.g., training configurations). |
-| `--test_references`| **(Required)** Path to the test reference dataset, which provides ground truth or benchmark data for evaluating model outputs. |
-| `--baseline`       | **(Optional)** If included, runs inference using a baseline model. Exclude this flag to run inference on all models in the directory. |
+Below table provides an overview of the key hyperparameters and paths used in the training process.
+
+| Parameter                 | Description                                              | Value                                                      |
+|---------------------------|----------------------------------------------------------|------------------------------------------------------------|
+| **Pretrained Model**      | Name of the pre-trained MusicGen model used for fine-tuning. | `facebook/musicgen-medium`                                  |
+| **Dataset Path**          | Path to the CSV file containing metadata for training.  | `/home/shivam.chauhan/Music/Atharva/Processed_Dataset/Makam_32KHz/metadata.csv` |
+| **Audio Base Path**       | Directory containing audio files for training.          | `/home/shivam.chauhan/Music/Atharva/Processed_Dataset/Makam_32KHz/` |
+| **Model Save Path**       | Path where the fine-tuned model will be saved.         | `./ModelsFinetuned/MusicgenMedium_with_adapters_EncoderDecoder_newMaqam.pt` |
+| **Adapter Bottleneck Dim**| Size of the bottleneck layer in the adapter.            | `32`                                                        |
+| **Batch Size**            | Number of samples per training batch.                    | `4`                                                         |
+| **Learning Rate**         | Step size for updating model weights.                    | `5e-5`                                                      |
+| **Weight Decay**          | Regularization parameter to prevent overfitting.        | `0.05`                                                      |
+| **Number of Epochs**      | Total number of training iterations over the dataset.    | `30`                                                        |
+| **Dropout Probability**   | Probability of dropping units in adapter layers.        | `0.1`                                                       |
+| **Max Gradient Norm**     | Maximum norm for gradient clipping to prevent explosion. | `1.0`                                                       |
+| **Train-Test Split Ratio**| Proportion of data used for training vs validation.      | `90:10`                                                     |
+| **Early Stopping Patience** | Number of epochs without improvement before stopping training. | `5 epochs`                                                 |
+
+## Explanation of Key Components:
+- **Pretrained Model**: A foundation model (`facebook/musicgen-medium`) that is fine-tuned for a specific task.
+- **Adapter Bottleneck**: A technique to introduce lightweight modifications without retraining the entire model.
+- **Batch Size**: A lower batch size (4) is used, likely due to memory constraints with large audio models.
+- **Dropout**: Helps prevent overfitting by randomly deactivating parts of the model during training.
+- **Gradient Clipping**: Ensures stability in training by capping large gradient updates.
+- **Early Stopping**: Prevents unnecessary training epochs if validation loss stops improving.
+
+This configuration is optimized for fine-tuning **MusicGen** with **adapter-based modifications** for improved music generation capabilities.
+
 
 ### Example Scenarios  
 

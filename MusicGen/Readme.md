@@ -10,7 +10,7 @@
 Run the following command to train the model:  
 
 ```sh
-python Training.py
+./run.sh
 
 ```
 
@@ -90,7 +90,7 @@ This setup ensures **efficient, high-quality music generation** using **MusicGen
 
 We have released the following models:
 
-Mustango Adapted: https://huggingface.co/athi180202/music4all_mustango
+MusicGen Adapted: 
 
 
 

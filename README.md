@@ -35,7 +35,6 @@ To enhance this process, a Bottleneck Residual Adapter with convolution layers i
 In MusicGen, we enhance the model with an additional 2 million parameters by integrating Linear Bottleneck Residual Adapter after the transformer decoder within the MusicGen architecture after thorough experimentation with other placements.
 
 The total parameter count of both the models is ~2 billion, making the adapter only 0.1% of the total size (2M params).
-
 For both models, we used two RTX A6000 GPUs over a period of around 10 hours. The adapter block was fine-tuned, using the AdamW optimizer using MSE (Reconstruction Loss).
 
 ## Evaluations

@@ -86,48 +86,6 @@ This table provides an overview of the key parameters used in the **inference pr
 This setup ensures **efficient, high-quality music generation** using **MusicGen with adapter-based fine-tuning**. 🚀
 
 
-
-## Installation
-
-```bash
-git clone https://github.com/atharva20038/music4all
-cd Mustango
-pip install -r requirements.txt
-cd diffusers
-pip install -e .
-```
-
-
-## Training
-
-We use the `accelerate` package from Hugging Face for multi-gpu training. Run `accelerate config` from terminal and set up your run configuration by the answering the questions asked.
-
-You can now train **Mustango** on the Hindustani Classical/Turkish Makam dataset using:
-
-```bash
-accelerate launch --text_encoder_name="google/flan-t5-large" 
-                  --scheduler_name="stabilityai/stable-diffusion-2-1" 
-                  --unet_model_config="configs/diffusion_model_config_munet.json" 
-                  --model_type Mustango 
-                  --freeze_text_encoder 
-                  --uncondition_all --uncondition_single --drop_sentences --snr_gamma 5 
-                  --train_file "data/metadata_train_hindustani.json" 
-                  --validation_file "data/metadata_val_hindustani.json" 
-                  --validation_file2 "data/metadata_val_hindustani.json" 
-                  --test_file "data/metadata_test_hindustani.json"
-```
-
-The `--model_type` flag allows to choose either Mustango, or Tango to be trained with the same code. However, do note that you also need to change `--unet_model_config` to the relevant config: diffusion_model_config_munet for Mustango; diffusion_model_config for Tango.
-
-The arguments `--uncondition_all`, `--uncondition_single`, `--drop_sentences` control the dropout functions. The `--train_file`, `--validation_file`, `--validation_file2`, `--test_file` files control the train/val/test splits. We have added samples of our files in `data` folder for format reference of input prompts in training. For audio only training, the data needs to be modified by keeping chords empty and beats 0 or other variables false. They are excluded from our training code as well during training by making these attributes empty during training.    
-
-Recommended training time from scratch on Hindustani Classical/Turkish Makam is at least 10-15 epochs.
-
-## Evaluation
-
-The inference scripts above help in computing the evaluation metrics with the given model outputs. The `audioldm_eval` folder contains the scripts for evaluation metrics. For the prompts used for Bloom's taxonomy based evaluation the folders `bloom_prompt_hindustani` & `bloom_prompt_makam` contain the prompts based on which these models are evaluated with the help of human evaluations.
-
-
 ## Model Zoo
 
 We have released the following models:

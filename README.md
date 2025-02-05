@@ -50,10 +50,10 @@ The table below presents the **objective evaluation metrics** for **Hindustani C
 <tr>
 <th>Model</th><th>FAD ↓</th><th>FD ↓</th><th>KLD ↓</th><th>PSNR ↑</th>
 </tr>
-<tr><td><b>MGB</b></td><td>40.05</td><td>75.76</td><td>6.53</td><td>16.23</td></tr>
-<tr><td><b>MGF</b></td><td>40.04</td><td>72.65</td><td>6.12</td><td>16.18</td></tr>
-<tr><td><b>MTB</b></td><td>6.36</td><td>45.31</td><td>2.73</td><td>16.78</td></tr>
-<tr><td><b>MTF</b></td><td><b>5.18</b></td><td><b>22.03</b></td><td><b>1.26</b></td><td><b>17.70</b></td></tr>
+<tr><td><b>MusicGen Baseline</b></td><td>40.05</td><td>75.76</td><td>6.53</td><td>16.23</td></tr>
+<tr><td><b>MusicGen Finetuned</b></td><td>40.04</td><td>72.65</td><td>6.12</td><td>16.18</td></tr>
+<tr><td><b>Mustango Baseline</b></td><td>6.36</td><td>45.31</td><td>2.73</td><td>16.78</td></tr>
+<tr><td><b>Mustango Finetuned</b></td><td><b>5.18</b></td><td><b>22.03</b></td><td><b>1.26</b></td><td><b>17.70</b></td></tr>
 </table>
 <!-- Turkish Makam Table -->
 <table style="width:45%">
@@ -61,10 +61,10 @@ The table below presents the **objective evaluation metrics** for **Hindustani C
 <tr>
 <th>Model</th><th>FAD ↓</th><th>FD ↓</th><th>KLD ↓</th><th>PSNR ↑</th>
 </tr>
-<tr><td><b>MGB</b></td><td>39.65</td><td>57.29</td><td>7.35</td><td>14.60</td></tr>
-<tr><td><b>MGF</b></td><td>39.68</td><td>56.71</td><td>7.21</td><td>14.46</td></tr>
-<tr><td><b>MTB</b></td><td>8.65</td><td>75.21</td><td>6.01</td><td><b>16.60</b></td></tr>
-<tr><td><b>MTF</b></td><td><b>2.57</b></td><td><b>20.56</b></td><td><b>4.81</b></td><td>16.17</td></tr>
+<tr><td><b>MusicGen Baseline</b></td><td>39.65</td><td>57.29</td><td>7.35</td><td>14.60</td></tr>
+<tr><td><b>MusicGen Finetuned</b></td><td>39.68</td><td>56.71</td><td>7.21</td><td>14.46</td></tr>
+<tr><td><b>Mustango Baseline</b></td><td>8.65</td><td>75.21</td><td>6.01</td><td><b>16.60</b></td></tr>
+<tr><td><b>Mustango Finetuned</b></td><td><b>2.57</b></td><td><b>20.56</b></td><td><b>4.81</b></td><td>16.17</td></tr>
 </table>
 
 </div>

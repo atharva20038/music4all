@@ -88,7 +88,7 @@ This setup ensures **efficient, high-quality music generation** using **MusicGen
 
 ## Model Zoo
 
-We have released the following models:
+We have released the following models: https://huggingface.co/0hawkeye33/music4all_musicgen
 
 MusicGen Adapted: 
 

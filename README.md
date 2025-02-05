@@ -1,5 +1,5 @@
 # Music4All
-This repository contains our code for the paper:  "Music for All : Representational bias and cross-cultural adaptability in Music generation models."
+This repository contains our code for the paper:  "Music for All : Representational bias and cross-cultural adaptability in music generation models."
 
 [Survey](https://atharva20038.github.io/aimusicexamples.github.io/) | [Model](https://huggingface.co/collections/athi180202/music4all-67a0778b5b562859c2a9a8e1) | [Paper]()
 

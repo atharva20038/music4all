@@ -101,7 +101,26 @@ The table below presents the **human evaluation scores (ELO Ratings)** for **Hin
 ## Citation
 Please consider citing the following article if you found our work useful:
 ```
-@misc{
-  
+@inproceedings{mehta-etal-2025-music,
+    title = "Music for All: Representational Bias and Cross-Cultural Adaptability of Music Generation Models",
+    author = "Mehta, Atharva  and
+      Chauhan, Shivam  and
+      Djanibekov, Amirbek  and
+      Kulkarni, Atharva  and
+      Xia, Gus  and
+      Choudhury, Monojit",
+    editor = "Chiruzzo, Luis  and
+      Ritter, Alan  and
+      Wang, Lu",
+    booktitle = "Findings of the Association for Computational Linguistics: NAACL 2025",
+    month = apr,
+    year = "2025",
+    address = "Albuquerque, New Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-naacl.258/",
+    doi = "10.18653/v1/2025.findings-naacl.258",
+    pages = "4569--4585",
+    ISBN = "979-8-89176-195-7",
+    abstract = "The advent of Music-Language Models has greatly enhanced the automatic music generation capability of AI systems, but they are also limited in their coverage of the musical genres and cultures of the world. We present a study of the datasets and research papers for music generation and quantify the bias and under-representation of genres. We find that only 5.7{\%} of the total hours of existing music datasets come from non-Western genres, which naturally leads to disparate performance of the models across genres.We then investigate the efficacy of Parameter-Efficient Fine-Tuning (PEFT) techniques in mitigating this bias. Our experiments with two popular models {--} MusicGen and Mustango, for two underrepresented non-Western music traditions {--} Hindustani Classical and Turkish Makam music, highlight the promises as well as the non-triviality of cross-genre adaptation of music through small datasets, implying the need for more equitable baseline music-language models that are designed for cross-cultural transfer learning."
 }
 ```
